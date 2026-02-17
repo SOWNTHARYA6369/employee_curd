@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Add Employee</h2>
+<form id="employeeForm">
+    <input type="number" placeholder="Employee ID" id="employeeId" required>
+    <input type="text" placeholder="First Name" id="firstname" required>
+    <input type="text" placeholder="Last Name" id="lastname" required>
+    <input type="date" id="dob">
+    <input type="text" placeholder="Education" id="education">
+    <textarea placeholder="Address" id="address"></textarea>
+    <input type="email" placeholder="Email" id="email">
+    <input type="text" placeholder="Phone" id="phone">
+    <button type="submit">Save</button>
+</form>
+
+<script src="script.js"></script>
+<script>
+document.getElementById("employeeForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const data = {
+        employeeId: Number(document.getElementById("employeeId").value),
+        firstname: document.getElementById("firstname").value,
+        lastname: document.getElementById("lastname").value,
+        dateOfBirth: document.getElementById("dob").value,
+        educationQualification: document.getElementById("education").value,
+        address: document.getElementById("address").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value
+    };
+    await addEmployee(data);
+    alert("Employee Added!");
+    window.location.href = "index.html";
+});
+</script>
+</body>
+</html>
